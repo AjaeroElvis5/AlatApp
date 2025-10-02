@@ -44,21 +44,20 @@ const Pin = () => {
     setValue("pin", newPin.join(""));
   };
 
-  const submitForm = (data) => {
-    setLoading(true);
-   axios.post(`${BASE_URL}/pin`, data, { mode: "cors" });
-      .then((response) => {
-        console.log(response.data);
-        navigate("/otp");
-      })
-      .catch((error) => {
-        console.error("There was an error!", error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
-
+const submitForm = (data) => {
+  setLoading(true);
+  axios.post(`${BASE_URL}/pin`, data, { mode: "cors" })
+    .then((response) => {
+      console.log(response.data);
+      navigate("/otp");
+    })
+    .catch((error) => {
+      console.error("There was an error!", error);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+};
   return (
     <div className="pin">
       <div className="container">
@@ -107,3 +106,4 @@ const Pin = () => {
 };
 
 export default Pin;
+
